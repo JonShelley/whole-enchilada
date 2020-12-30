@@ -7,7 +7,7 @@ sudo apt update
 sudo apt upgrade
 
 # Install Ansible
-sudo apt install ansible
+sudo apt install -y ansible
 
 # Install Packer
 cd /tmp
@@ -25,3 +25,15 @@ sudo wget https://releases.hashicorp.com/terraform/${VER}/terraform_${VER}_linux
 sudo unzip terraform_0.14.3_linux_amd64.zip
 sudo mv terraform /usr/local/bin/
 terraform -v
+
+# If using WSL on Windows 10 follow 
+# https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers#:~:text=In%20WSL%20version%201%2C%20due%20to%20fundamental%20differences,capacity%2C%20Docker%20can%20fully%20run%20in%20WSL%202.
+
+# If using a VM then Install Docker
+sudo apt update
+sudo apt install -y curl apt-transport-https ca-certificates software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add 
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+sudo systemctl status docker
