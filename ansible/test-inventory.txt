@@ -1,0 +1,4 @@
+[testing]
+localhost
+test001.domain.tld
+test002.domain.tld
